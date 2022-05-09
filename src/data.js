@@ -65,7 +65,7 @@ export const quizData = {
     },
     {
       text:
-        '5. Which Dutch painter was a leading figure of the De Stijl (Neoplasticism) art movement and famous for abstract paintings made from squares and rectangles? ',
+        '5. Which Dutch painter was a leading figure of the De Stijl (Neoplasticism) art movement? ',
       answers: {
         a: 'Jan Altink',
         b: 'Karel Appel',

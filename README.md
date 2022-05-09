@@ -72,9 +72,6 @@ Tasks could look like this, using the [MoSCoW](https://en.wikipedia.org/wiki/MoS
 - [ ] (could have) Transition between pages or question look fancy like TypeForm for example
 
 You should create tasks that fit with your goal, these tasks serve just as an example.
-<<<<<<< HEAD
 Hello im Yasemin Caliskan
-=======
 
 Hi Everyone this is Erle
->>>>>>> 7f1956f27c7fa2c10dbdb33087e210712cfab630

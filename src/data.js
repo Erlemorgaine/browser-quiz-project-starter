@@ -16,46 +16,126 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text: 'What are the different ways to declare a JS variable?',
+      text:
+        '1. Which famous Dutch painter painted the "Girl with a Pearl Earring"?',
       answers: {
-        a: 'constant, let, variable',
-        b: 'var, const, let, function',
-        c: 'var, let, const',
-      },
-      correct: 'c',
-      selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
-    },
-    {
-      text: 'What does `typeof` do?',
-      answers: {
-        a: 'changes the type of a primitive value',
-        b: 'returns a string describing the type of a value',
-        c: 'determines if a value is primitive',
-        d: 'can tell the difference between arrays and objects',
+        a: 'Rembrandt van Rijn',
+        b: 'Johannes Vermeer',
+        c: 'Vincent van Gogh',
+        d: 'Johannes van Eyck',
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
+    },
+    {
+      text:
+        '2. Which Dutch painter is one of the most famous self-portrait artists? ',
+      answers: {
+        a: 'Vincent van Gogh',
+        b: 'Eglon van der Neer',
+        c: 'Rachel Ruysch',
+        d: 'Frans Hals',
+      },
+      correct: 'a',
+      selected: null,
+    },
+    {
+      text:
+        '3. In which Dutch museum "Europe`s biggest circular painting" can be found?',
+      answers: {
+        a: 'Rijksmuseum',
+        b: 'Van Gogh Museum',
+        c: 'Panorama Mesdag',
+        d: 'Kunstmuseum Den Haag',
+      },
+      correct: 'c',
+      selected: null,
+    },
+    {
+      text:
+        '4. Which famous Dutch painter had some of his paintings held by a baker due to unpaid debt?',
+      answers: {
+        a: 'Johannes van Eyck',
+        b: 'Rembrandt van Rijn',
+        c: 'Vincent van Gogh',
+        d: 'Johannes Vermeer',
+      },
+      correct: 'd',
+      selected: null,
+    },
+    {
+      text:
+        '5. Which Dutch painter was a leading figure of the De Stijl (Neoplasticism) art movement and famous for abstract paintings made from squares and rectangles? ',
+      answers: {
+        a: 'Jan Altink',
+        b: 'Karel Appel',
+        c: 'Piet Mondrian',
+        d: 'Gerard Pieter Adolfs',
+      },
+      correct: 'c',
+      selected: null,
+    },
+    {
+      text:
+        '6. Who was the famous Dutch artist that painted the "The Night Watch"? ',
+      answers: {
+        a: 'Johannes van Eyck',
+        b: 'Vincent van Gogh',
+        c: 'Johannes Vermeer',
+        d: 'Rembrandt van Rijn',
+      },
+      correct: 'd',
+      selected: null,
+    },
+
+    {
+      text:
+        '7. All of the following are common specializations associated with the Dutch Baroque painters EXCEPT: ',
+      answers: {
+        a: 'Landscape',
+        b: 'Group portrait',
+        c: 'Still life',
+        d: 'Palace art and court life',
+      },
+      correct: 'd',
+      selected: null,
+    },
+
+    {
+      text:
+        '8. Who was the famous Dutch artist that painted the picture called "The Anatomy Lesson of Dr. Nicolaes Tulp" ? ',
+      answers: {
+        a: 'Johannes van Eyck',
+        b: 'Rembrandt van Rijn',
+        c: 'Vincent van Gogh',
+        d: 'Johannes Vermeer',
+      },
+      correct: 'b',
+      selected: null,
+    },
+    {
+      text: '9. One of Vincent van Gogh`s famous works is " ... ". ',
+      answers: {
+        a: 'The Starry Night',
+        b: 'Viva la Vida, Watermelons',
+        c: 'Turtle Tamer',
+        d: 'Magnolyas',
+      },
+      correct: 'a',
+      selected: null,
+    },
+
+    {
+      text:
+        '10. Which Dutch painter did French art critic Théophile Thoré-Bürger nickname "The Sphinx of Delft"? ',
+      answers: {
+        a: 'Rachel Ruysch',
+        b: 'Eglon van der Neer',
+        c: 'Johannes Vermeer',
+        d: 'Frans Hals',
+      },
+      correct: 'c',
+      selected: null,
     },
     // Add more questions here
   ],

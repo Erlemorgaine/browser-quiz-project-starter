@@ -8,7 +8,7 @@ export const createAnswerElement = (key, answerText) => {
   const answerBtnId = `${ANSWER_BUTTON_ID}-${key}`;
   const element = document.createElement('li');
   element.innerHTML = String.raw`
-  <button id='${answerBtnId}'> ${key}: ${answerText}</button>;
+  <button id='${answerBtnId}' class="btn-answer"> ${key}: ${answerText} </button>
   `;
   element.addEventListener('click', (e, key) => {
     console.log(key);

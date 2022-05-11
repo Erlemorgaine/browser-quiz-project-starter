@@ -25,6 +25,13 @@ ul {
   font-size: 1.5rem;
   color: white;
   margin: 1vh;
+  border: solid black 0.2vw;
   border-radius: 1vw;
   text-align: left;
+}
+.btn-correct-answer {
+  background-color: rgb(24, 177, 24);
+}
+.btn-wrong-answer {
+  background-color: rgb(207, 24, 24);
 }

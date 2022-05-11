@@ -7,18 +7,11 @@ import {} from '../constants.js';
  * @returns {Element}
  */
 
-export const createScoreElement = (e, selectedAnswer, correctAnswer) => {
+export const createScoreElement = (score) => {
   const element = document.createElement('div');
 
-  //const selectedAnswer = document.getElementBy...('');
-  if (selectedAnswer === correctAnswer) {
-    score++;
-  } else {
-    score;
-  }
-
   element.innerHTML = String.raw`
-  score = ${score} of 10;
-`;
+    <p> ${score}<p>
+  `;
   return element;
 };

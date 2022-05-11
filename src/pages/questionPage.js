@@ -34,6 +34,9 @@ export const initQuestionPage = () => {
     }
   };
 
+  const scoreElement = createScoreElement(5);
+  userInterface.appendChild(scoreElement);
+
   const questionElement = createQuestionElement(currentQuestion.text);
 
   userInterface.appendChild(questionElement);
@@ -42,11 +45,13 @@ export const initQuestionPage = () => {
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
-    answerElement.addEventListener('click', (e) => {
-      checkAnswer(e, key, indexOfCorrectAnswer());
-      createScoreElement(e, key, currentQuestion.correct);
-    });
+
     answersListElement.appendChild(answerElement);
+
+    answerElement.addEventListener('click', (e) => {
+      checkAnswer(indexOfCorrectAnswer());
+      // updateScore(key, currentQuestion.correct);
+    });
   }
 
   document
@@ -60,19 +65,16 @@ const nextQuestion = () => {
   initQuestionPage();
 };
 
-const checkAnswer = (e, answer, indexOfCorrectAnswer) => {
+const checkAnswer = (indexOfCorrectAnswer) => {
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
-  console.log(answerButtons);
-  console.log(`index of correctasnwer is ${indexOfCorrectAnswer}`);
 
   answerButtons.forEach((element) => {
-    console.log(element);
     element.disabled = 'true';
-    console.log(`indexof this is ${answerButtons.indexOf(element)}`);
+
     if (answerButtons.indexOf(element) === indexOfCorrectAnswer) {
-      element.style.backgroundColor = 'green';
+      element.classList.add('btn-correct-answer');
     } else {
-      element.style.backgroundColor = 'red';
+      element.classList.add('btn-wrong-answer');
     }
   });
 };

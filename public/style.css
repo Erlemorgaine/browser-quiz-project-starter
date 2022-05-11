@@ -15,13 +15,6 @@
 ul {
   list-style: none;
 }
-<<<<<<< HEAD
-
-.score {
-  position: absolute;
-  top: 50 px;
-  right: 50px;
-=======
 .btn-answer {
   width: 35vw;
   height: 4vh;
@@ -33,5 +26,10 @@ ul {
   margin: 1vh;
   border-radius: 1vw;
   text-align: left;
->>>>>>> b4fed41402ff9b75177ea03d53b9a01608326647
+}
+
+.score {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
 }

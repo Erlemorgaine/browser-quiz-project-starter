@@ -21,6 +21,10 @@ export const initQuestionPage = () => {
 
   userInterface.appendChild(questionElement);
 
+  /*const scoreViewElement = document.getElementById(SCORE_VIEW_ID);
+const scoreElement = createScoreElement();
+scoreViewElement.appendChild(scoreElement); */
+
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
@@ -39,6 +43,4 @@ const nextQuestion = () => {
   initQuestionPage();
 };
 
-/*const scoreViewElement = document.getElementById(SCORE_VIEW_ID);
-const scoreElement = createScoreElement();
-scoreViewElement.appendChild(scoreElement); */
+

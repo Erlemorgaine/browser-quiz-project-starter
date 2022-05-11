@@ -16,7 +16,23 @@ export const initQuestionPage = () => {
   userInterface.innerHTML = '';
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-  const correctAnswer = currentQuestion.correct;
+
+  const indexOfCorrectAnswer = () => {
+    switch (currentQuestion.correct) {
+      case 'a':
+        return 0;
+        break;
+      case 'b':
+        return 1;
+        break;
+      case 'c':
+        return 2;
+        break;
+      case 'd':
+        return 3;
+        break;
+    }
+  };
 
   const questionElement = createQuestionElement(currentQuestion.text);
 
@@ -27,8 +43,8 @@ export const initQuestionPage = () => {
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answerElement.addEventListener('click', (e) => {
-      checkAnswer(e, key, correctAnswer);
-      createScoreElement(e, key, correctAnswer);
+      checkAnswer(e, key, indexOfCorrectAnswer());
+      createScoreElement(e, key, currentQuestion.correct);
     });
     answersListElement.appendChild(answerElement);
   }
@@ -44,17 +60,19 @@ const nextQuestion = () => {
   initQuestionPage();
 };
 
-const checkAnswer = (e, answer, correctAnswer) => {
-  const answerButtons = document.querySelectorAll('.btn-answer');
+const checkAnswer = (e, answer, indexOfCorrectAnswer) => {
+  const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
   console.log(answerButtons);
-
-  console.log(`correct answer is ${correctAnswer}`);
+  console.log(`index of correctasnwer is ${indexOfCorrectAnswer}`);
 
   answerButtons.forEach((element) => {
+    console.log(element);
     element.disabled = 'true';
-    element.style.backgroundColor = 'red';
+    console.log(`indexof this is ${answerButtons.indexOf(element)}`);
+    if (answerButtons.indexOf(element) === indexOfCorrectAnswer) {
+      element.style.backgroundColor = 'green';
+    } else {
+      element.style.backgroundColor = 'red';
+    }
   });
-  if (answer === correctAnswer) {
-    e.target.style.backgroundColor = 'green';
-  }
 };

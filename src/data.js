@@ -12,7 +12,7 @@
 */
 
 export const quizData = {
-  score: 0,
+
   currentQuestionIndex: 0,
   // the questions in the quiz
   questions: [
@@ -26,7 +26,7 @@ export const quizData = {
         d: 'Johannes van Eyck',
       },
       correct: 'b',
-      selected: null,
+      selected: 'b',
     },
     {
       text:

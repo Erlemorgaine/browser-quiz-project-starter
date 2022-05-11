@@ -35,7 +35,8 @@ export const initQuestionPage = () => {
     }
   };
 
-  const scoreElement = createScoreElement(5);
+  
+  const scoreElement = createScoreElement(0);
   userInterface.appendChild(scoreElement);
 
   const questionElement = createQuestionElement(currentQuestion.text);
@@ -52,6 +53,10 @@ export const initQuestionPage = () => {
     answerElement.addEventListener('click', (e) => {
       checkAnswer(indexOfCorrectAnswer());
       // updateScore(key, currentQuestion.correct);
+
+
+      const currentScore = updateScore(quizData.questions);
+      scoreElement.innerHTML = currentScore;
     });
   }
 
@@ -67,24 +72,33 @@ const nextQuestion = () => {
 };
 
 
-/*
- const userScore = () =>{
-  let score = 0;
+// TODO: Better to use this
+ const updateScore = (quizDataQuestions) => {
 
-  const correctAnswer = currentQuestion.correct;
-  const selectedAnswer = e.target;
-  if (selectedAnswer === correctAnswer) {
-    return score++;
-  } else {
-    return score;
-  }
-}
-  userScore(e, selectedAnswer, correctAnswer);
+   const correctAnswers = quizDataQuestions
+     .filter((question) => question.correct === question.selected);
+   
+   return correctAnswers.length;
+ }
 
 
-/*const scoreViewElement = document.getElementById(SCORE_VIEW_ID);
-const scoreElement = createScoreElement();
-scoreViewElement.appendChild(scoreElement); */
+
+//   const updateScore = (currentQuestion) => {
+
+//     let score = 0;
+//   if (currentQuestion.selectedAnswer === currentQuestion.correctAnswer) {
+//     return score++;
+//   } else {
+//     return score;
+//   }
+//   }
+
+// quizData.currentScore += updateScore(currentQuestion);
+  // updateScore(e, selectedAnswer, correctAnswer);
+
+
+
+
 const checkAnswer = (indexOfCorrectAnswer) => {
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
 

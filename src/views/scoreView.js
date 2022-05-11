@@ -1,6 +1,6 @@
 'use strict';
 
-import { } from '../constants.js';
+//import { } from '../constants.js';
 
 /**
  * Create a score element
@@ -9,17 +9,19 @@ import { } from '../constants.js';
 
 export const createScoreElement = () => {
   const element = document.createElement('div');
+  element.className = 'score';
 
+  element.innerHTML = 'hello';
 
-  element.innerHTML = String.raw`
+  /*  element.innerHTML = String.raw`
   score = ${scoreCounter} of 10;
-`;
-return element;
+`; */
+  return element;
 };
 
+createScoreElement();
 
-
-const scoreCounter = (){
+/*const scoreCounter = (){
   let score = 0; 
 const correctAnswer = currentQuestion.correct;
 const selectedAnswer = document.getElementBy...('');
@@ -29,4 +31,4 @@ if (selectedAnswer === correctAnswer) {
  return score;
 }
 
-}
+} */

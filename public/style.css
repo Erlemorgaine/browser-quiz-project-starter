@@ -15,3 +15,9 @@
 ul {
   list-style: none;
 }
+
+.score {
+  position: absolute;
+  top: 50 px;
+  right: 50px;
+}

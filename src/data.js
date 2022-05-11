@@ -26,7 +26,7 @@ export const quizData = {
         d: 'Johannes van Eyck',
       },
       correct: 'b',
-      selected: 'b',
+      selected: null,
     },
     {
       text:

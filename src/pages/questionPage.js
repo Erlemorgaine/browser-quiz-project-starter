@@ -17,13 +17,12 @@ export const initQuestionPage = () => {
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
+  const scoreElement = createScoreElement(5);
+  userInterface.appendChild(scoreElement);
+
   const questionElement = createQuestionElement(currentQuestion.text);
 
   userInterface.appendChild(questionElement);
-
-  /*const scoreViewElement = document.getElementById(SCORE_VIEW_ID);
-const scoreElement = createScoreElement();
-scoreViewElement.appendChild(scoreElement); */
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
@@ -44,3 +43,21 @@ const nextQuestion = () => {
 };
 
 
+/*
+ const userScore = () =>{
+  let score = 0;
+
+  const correctAnswer = currentQuestion.correct;
+  const selectedAnswer = e.target;
+  if (selectedAnswer === correctAnswer) {
+    return score++;
+  } else {
+    return score;
+  }
+}
+  userScore(e, selectedAnswer, correctAnswer);
+
+
+/*const scoreViewElement = document.getElementById(SCORE_VIEW_ID);
+const scoreElement = createScoreElement();
+scoreViewElement.appendChild(scoreElement); */

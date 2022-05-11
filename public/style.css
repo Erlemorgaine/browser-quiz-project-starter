@@ -26,10 +26,6 @@ ul {
   margin: 1vh;
   border-radius: 1vw;
   text-align: left;
-}
-
-.score {
-  position: absolute;
-  top: 5vh;
-  left: 5vw;
+  display: inline-flex;
+  align-items: center;
 }

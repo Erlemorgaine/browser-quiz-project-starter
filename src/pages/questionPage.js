@@ -43,6 +43,10 @@ export const initQuestionPage = () => {
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => {
+<<<<<<< HEAD
+=======
+      console.log('hello world');
+>>>>>>> 22df386 (conflicts are resolved)
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
       if (currentQuestion.selected === null) {
         checkAnswer(currentQuestion, 'not replied');
@@ -51,7 +55,11 @@ export const initQuestionPage = () => {
         if (quizData.currentQuestionIndex < quizData.questions.length) {
           nextQuestion();
         } else {
+<<<<<<< HEAD
           initFinalPage ();
+=======
+          initFinalPage();
+>>>>>>> 22df386 (conflicts are resolved)
         }
       }
     });
@@ -63,9 +71,12 @@ const nextQuestion = () => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // TODO: Better to use this
 >>>>>>> 66d2feb (Modified question page next button user interaction)
+=======
+>>>>>>> 22df386 (conflicts are resolved)
 const updateScore = (quizDataQuestions) => {
   const correctAnswers = quizDataQuestions.filter(
     (question) => question.correct === question.selected
@@ -75,6 +86,9 @@ const updateScore = (quizDataQuestions) => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 22df386 (conflicts are resolved)
 const getTheIndexOfCorrectAnswer = () => {
   const correctAnswer =
     quizData.questions[quizData.currentQuestionIndex].correct;
@@ -90,6 +104,7 @@ const getTheIndexOfCorrectAnswer = () => {
       return 3;
   }
 };
+<<<<<<< HEAD
 
 const checkAnswer = (currentQuestion, answer) => {
   currentQuestion.selected = answer;
@@ -107,6 +122,11 @@ const checkAnswer = (currentQuestion, answer) => {
 // quizData.currentScore += updateScore(currentQuestion);
 // updateScore(e, selectedAnswer, correctAnswer);
 >>>>>>> 66d2feb (Modified question page next button user interaction)
+=======
+
+const checkAnswer = (currentQuestion, answer) => {
+  currentQuestion.selected = answer;
+>>>>>>> 22df386 (conflicts are resolved)
 
   console.log(`${currentQuestion.selected}is current question selected`);
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));

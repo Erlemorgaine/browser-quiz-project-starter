@@ -7,7 +7,7 @@
 
 export const createClosingElement = () => {
   const element = document.createElement('div');
-  // element.className = 'score';
+  element.className = 'final-page';
 
   element.innerHTML = String.raw`
  <p> well done! </p>

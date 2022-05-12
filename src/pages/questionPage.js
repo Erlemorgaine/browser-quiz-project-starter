@@ -43,7 +43,10 @@ export const initQuestionPage = () => {
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => {
+<<<<<<< HEAD
       console.log('hello world');
+=======
+>>>>>>> 96fad52 (everything works)
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
       if (currentQuestion.selected === null) {
         checkAnswer(currentQuestion, 'not replied');

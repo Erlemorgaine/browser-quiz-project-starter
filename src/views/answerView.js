@@ -10,8 +10,5 @@ export const createAnswerElement = (key, answerText) => {
   element.innerHTML = String.raw`
   <button id='${answerBtnId}' class="btn-answer"> ${key}: ${answerText} </button>
   `;
-  element.addEventListener('click', (e, key) => {
-    console.log(key);
-  });
   return element;
 };

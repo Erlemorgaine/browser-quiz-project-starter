@@ -11,6 +11,10 @@
   max-height: 80vh;
   overflow: auto;
 }
+/*
+font-family: 'Lobster', cursive;
+font-family: 'Gideon Roman', cursive;  */
+
 
 ul {
   list-style: none;
@@ -21,7 +25,10 @@ ul {
   height: 4vh;
   padding: 2vw;
   background-color: rgb(34, 51, 51);
-  font-family: Arial, Helvetica, sans-serif;
+ /* font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lobster', cursive;*/
+  font-family: 'Gideon Roman', cursive; 
+ 
   font-size: 1.5rem;
   color: white;
   margin: 1vh;
@@ -62,12 +69,12 @@ html, body {
 
 .btn-correct-answer {
 
-  border: solid rgb(40, 184, 150) 0.5vw;
+  border: solid rgb(42, 175, 133) 0.5vw;
   
 }
 .btn-wrong-answer {
  
-  border: solid rgb(231, 111, 111) 0.5vw;
+  border: solid rgba(206, 68, 21, 0.832) 0.5vw;
   
 }
 

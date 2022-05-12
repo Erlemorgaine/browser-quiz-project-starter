@@ -51,6 +51,8 @@ export const initQuestionPage = () => {
       checkAnswer(indexOfCorrectAnswer());
       //updateScore();
 
+      // TODO: Don't use hardcoded 10, use the length of all the questions. Use it as a parameter in createScoreElement
+      // TODO: Move this line above the function call of createScoreElement, pass it as an argument to createScoreElement
 
       const currentScore = updateScore(quizData.questions);
       scoreElement.innerHTML =  `Score : ${currentScore} of 10`;

@@ -11,6 +11,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createScoreElement } from '../views/scoreView.js';
+import { initFinalPage } from './finalPage.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -42,7 +43,6 @@ export const initQuestionPage = () => {
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => {
-      console.log('hello world');
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
       if (currentQuestion.selected === null) {
         checkAnswer(currentQuestion, 'not replied');
@@ -51,6 +51,7 @@ export const initQuestionPage = () => {
         if (quizData.currentQuestionIndex < quizData.questions.length) {
           nextQuestion();
         } else {
+          initFinalPage ();
         }
       }
     });
@@ -61,6 +62,10 @@ const nextQuestion = () => {
   initQuestionPage();
 };
 
+<<<<<<< HEAD
+=======
+// TODO: Better to use this
+>>>>>>> 66d2feb (Modified question page next button user interaction)
 const updateScore = (quizDataQuestions) => {
   const correctAnswers = quizDataQuestions.filter(
     (question) => question.correct === question.selected
@@ -69,6 +74,7 @@ const updateScore = (quizDataQuestions) => {
   return correctAnswers.length;
 };
 
+<<<<<<< HEAD
 const getTheIndexOfCorrectAnswer = () => {
   const correctAnswer =
     quizData.questions[quizData.currentQuestionIndex].correct;
@@ -87,6 +93,20 @@ const getTheIndexOfCorrectAnswer = () => {
 
 const checkAnswer = (currentQuestion, answer) => {
   currentQuestion.selected = answer;
+=======
+//   const updateScore = (currentQuestion) => {
+
+//     let score = 0;
+//   if (currentQuestion.selectedAnswer === currentQuestion.correctAnswer) {
+//     return score++;
+//   } else {
+//     return score;
+//   }
+//   }
+
+// quizData.currentScore += updateScore(currentQuestion);
+// updateScore(e, selectedAnswer, correctAnswer);
+>>>>>>> 66d2feb (Modified question page next button user interaction)
 
   console.log(`${currentQuestion.selected}is current question selected`);
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));

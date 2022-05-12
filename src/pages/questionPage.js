@@ -19,19 +19,6 @@ export const initQuestionPage = () => {
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const indexOfCorrectAnswer = () => {
-    switch (currentQuestion.correct) {
-      case 'a':
-        return 0;
-      case 'b':
-        return 1;
-      case 'c':
-        return 2;
-      case 'd':
-        return 3;
-    }
-  };
-
   const scoreElement = createScoreElement();
   userInterface.appendChild(scoreElement);
 
@@ -47,33 +34,35 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
 
     answerElement.addEventListener('click', (e) => {
-      currentQuestion.selected = key;
-      checkAnswer(indexOfCorrectAnswer());
-      //updateScore();
-
       const currentScore = updateScore(quizData.questions);
       scoreElement.innerHTML = `Score : ${currentScore} of 10`;
+      checkAnswer(currentQuestion, key);
     });
   }
 
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => {
-      if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
-        nextQuestion();
+      console.log('hello world');
+      const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+      if (currentQuestion.selected === null) {
+        checkAnswer(currentQuestion, 'not replied');
+        setTimeout(nextQuestion, '2000');
       } else {
-        initFinalPage();
+        if (quizData.currentQuestionIndex < quizData.questions.length) {
+          nextQuestion();
+        } else {
+          initFinalPage();
+        }
       }
     });
 };
-
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
 };
 
-// TODO: Better to use this
 const updateScore = (quizDataQuestions) => {
   const correctAnswers = quizDataQuestions.filter(
     (question) => question.correct === question.selected
@@ -82,27 +71,33 @@ const updateScore = (quizDataQuestions) => {
   return correctAnswers.length;
 };
 
-//   const updateScore = (currentQuestion) => {
+const getTheIndexOfCorrectAnswer = () => {
+  const correctAnswer =
+    quizData.questions[quizData.currentQuestionIndex].correct;
 
-//     let score = 0;
-//   if (currentQuestion.selectedAnswer === currentQuestion.correctAnswer) {
-//     return score++;
-//   } else {
-//     return score;
-//   }
-//   }
+  switch (correctAnswer) {
+    case 'a':
+      return 0;
+    case 'b':
+      return 1;
+    case 'c':
+      return 2;
+    case 'd':
+      return 3;
+  }
+};
 
-// quizData.currentScore += updateScore(currentQuestion);
-// updateScore(e, selectedAnswer, correctAnswer);
+const checkAnswer = (currentQuestion, answer) => {
+  currentQuestion.selected = answer;
 
-const checkAnswer = (indexOfCorrectAnswer) => {
+  console.log(`${currentQuestion.selected}is current question selected`);
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
 
   answerButtons.forEach((element) => {
     element.disabled = 'true';
     element.style.cursor = 'auto';
 
-    answerButtons.indexOf(element) === indexOfCorrectAnswer
+    answerButtons.indexOf(element) === getTheIndexOfCorrectAnswer()
       ? element.classList.add('btn-correct-answer')
       : element.classList.add('btn-wrong-answer');
   });

@@ -8,12 +8,12 @@ import { initQuestionPage} from '../pages/questionPage.js';
  * @returns {Element}
  */
 
-export const createScoreElement = (score) => {
+export const createScoreElement = () => {
   const element = document.createElement('div');
   element.className = 'score';
 
   element.innerHTML = String.raw`
- <p>${score}</p>
+ <p> </p>
 `;
 
   return element;

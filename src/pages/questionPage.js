@@ -32,7 +32,7 @@ export const initQuestionPage = () => {
   };
 
   
-  const scoreElement = createScoreElement(0);
+  const scoreElement = createScoreElement();
   userInterface.appendChild(scoreElement);
 
   const questionElement = createQuestionElement(currentQuestion.text);
@@ -49,11 +49,11 @@ export const initQuestionPage = () => {
     answerElement.addEventListener('click', (e) => {
       currentQuestion.selected = key;
       checkAnswer(indexOfCorrectAnswer());
-      // updateScore(key, currentQuestion.correct);
+      //updateScore();
 
 
       const currentScore = updateScore(quizData.questions);
-      scoreElement.innerHTML = currentScore;
+      scoreElement.innerHTML =  currentScore;
     });
   }
 

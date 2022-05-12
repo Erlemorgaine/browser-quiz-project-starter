@@ -22,16 +22,12 @@ export const initQuestionPage = () => {
     switch (currentQuestion.correct) {
       case 'a':
         return 0;
-        break;
       case 'b':
         return 1;
-        break;
       case 'c':
         return 2;
-        break;
       case 'd':
         return 3;
-        break;
     }
   };
 
@@ -51,6 +47,7 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
 
     answerElement.addEventListener('click', (e) => {
+      currentQuestion.selected = key;
       checkAnswer(indexOfCorrectAnswer());
       // updateScore(key, currentQuestion.correct);
 
@@ -104,11 +101,10 @@ const checkAnswer = (indexOfCorrectAnswer) => {
 
   answerButtons.forEach((element) => {
     element.disabled = 'true';
+    element.style.cursor = 'auto';
 
-    if (answerButtons.indexOf(element) === indexOfCorrectAnswer) {
-      element.classList.add('btn-correct-answer');
-    } else {
-      element.classList.add('btn-wrong-answer');
-    }
+    answerButtons.indexOf(element) === indexOfCorrectAnswer
+      ? element.classList.add('btn-correct-answer')
+      : element.classList.add('btn-wrong-answer');
   });
 };

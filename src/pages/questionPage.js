@@ -4,7 +4,7 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
-  SCORE_VIEW_ID,
+  CURRENT_SCORE_ID,
   ANSWER_BUTTON_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
@@ -31,8 +31,8 @@ export const initQuestionPage = () => {
     }
   };
 
-  
-  const scoreElement = createScoreElement();
+  const currentScore = updateScore(quizData.questions);
+  const scoreElement = createScoreElement(currentScore);
   userInterface.appendChild(scoreElement);
 
   const questionElement = createQuestionElement(currentQuestion.text);
@@ -49,13 +49,12 @@ export const initQuestionPage = () => {
     answerElement.addEventListener('click', (e) => {
       currentQuestion.selected = key;
       checkAnswer(indexOfCorrectAnswer());
-      //updateScore();
 
       // TODO: Don't use hardcoded 10, use the length of all the questions. Use it as a parameter in createScoreElement
       // TODO: Move this line above the function call of createScoreElement, pass it as an argument to createScoreElement
 
-      const currentScore = updateScore(quizData.questions);
-      scoreElement.innerHTML =  `Score : ${currentScore} of 10`;
+      const currentScoreElement = document.getElementById(CURRENT_SCORE_ID);
+      currentScoreElement.innerHTML = currentScore;
     });
   }
 
@@ -70,33 +69,13 @@ const nextQuestion = () => {
   initQuestionPage();
 };
 
+const updateScore = (quizDataQuestions) => {
+  const correctAnswers = quizDataQuestions.filter(
+    (question) => question.correct === question.selected
+  );
 
-// TODO: Better to use this
- const updateScore = (quizDataQuestions) => {
-
-   const correctAnswers = quizDataQuestions
-     .filter((question) => question.correct === question.selected);
-   
-   return correctAnswers.length;
- }
-
-
-
-//   const updateScore = (currentQuestion) => {
-
-//     let score = 0;
-//   if (currentQuestion.selectedAnswer === currentQuestion.correctAnswer) {
-//     return score++;
-//   } else {
-//     return score;
-//   }
-//   }
-
-// quizData.currentScore += updateScore(currentQuestion);
-  // updateScore(e, selectedAnswer, correctAnswer);
-
-
-
+  return correctAnswers.length;
+};
 
 const checkAnswer = (indexOfCorrectAnswer) => {
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));

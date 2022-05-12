@@ -11,6 +11,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createScoreElement } from '../views/scoreView.js';
+import { initFinalPage } from './finalPage.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -31,7 +32,6 @@ export const initQuestionPage = () => {
     }
   };
 
-  
   const scoreElement = createScoreElement();
   userInterface.appendChild(scoreElement);
 
@@ -51,15 +51,20 @@ export const initQuestionPage = () => {
       checkAnswer(indexOfCorrectAnswer());
       //updateScore();
 
-
       const currentScore = updateScore(quizData.questions);
-      scoreElement.innerHTML =  `Score : ${currentScore} of 10`;
+      scoreElement.innerHTML = `Score : ${currentScore} of 10`;
     });
   }
 
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
+    .addEventListener('click', () => {
+      if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
+        nextQuestion();
+      } else {
+        initFinalPage();
+      }
+    });
 };
 
 const nextQuestion = () => {
@@ -68,17 +73,14 @@ const nextQuestion = () => {
   initQuestionPage();
 };
 
-
 // TODO: Better to use this
- const updateScore = (quizDataQuestions) => {
+const updateScore = (quizDataQuestions) => {
+  const correctAnswers = quizDataQuestions.filter(
+    (question) => question.correct === question.selected
+  );
 
-   const correctAnswers = quizDataQuestions
-     .filter((question) => question.correct === question.selected);
-   
-   return correctAnswers.length;
- }
-
-
+  return correctAnswers.length;
+};
 
 //   const updateScore = (currentQuestion) => {
 
@@ -91,10 +93,7 @@ const nextQuestion = () => {
 //   }
 
 // quizData.currentScore += updateScore(currentQuestion);
-  // updateScore(e, selectedAnswer, correctAnswer);
-
-
-
+// updateScore(e, selectedAnswer, correctAnswer);
 
 const checkAnswer = (indexOfCorrectAnswer) => {
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));

@@ -53,7 +53,6 @@ export const initQuestionPage = () => {
           nextQuestion();
         } else {
           initFinalPage();
-          q;
         }
       }
     });

@@ -53,7 +53,7 @@ export const initQuestionPage = () => {
 
 
       const currentScore = updateScore(quizData.questions);
-      scoreElement.innerHTML =  currentScore;
+      scoreElement.innerHTML =  `Score : ${currentScore} of 10`;
     });
   }
 

@@ -19,19 +19,6 @@ export const initQuestionPage = () => {
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const indexOfCorrectAnswer = () => {
-    switch (currentQuestion.correct) {
-      case 'a':
-        return 0;
-      case 'b':
-        return 1;
-      case 'c':
-        return 2;
-      case 'd':
-        return 3;
-    }
-  };
-
   const currentScore = updateScore(quizData.questions);
   const scoreElement = createScoreElement(currentScore);
   userInterface.appendChild(scoreElement);

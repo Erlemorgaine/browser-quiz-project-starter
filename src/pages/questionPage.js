@@ -91,6 +91,8 @@ const getTheIndexOfCorrectAnswer = () => {
 
 const checkAnswer = (currentQuestion, answer) => {
   currentQuestion.selected = answer;
+
+  // TODO: pass currentQuestionIndex as parameter, this is better practice
   localStorage.setItem(quizData.currentQuestionIndex, answer);
 
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));

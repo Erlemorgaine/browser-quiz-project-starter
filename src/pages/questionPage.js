@@ -102,3 +102,25 @@ const checkAnswer = (indexOfCorrectAnswer) => {
       : element.classList.add('btn-wrong-answer');
   });
 };
+
+ let seconds = 15;
+let time = setInterval(setTimer, 1000);
+
+function setTimer() {
+    document.getElementById('timer').innerHTML = seconds;
+    seconds--;
+    if (seconds == -1) {
+        clearInterval(time);
+        
+    }
+}  /*
+
+let seconds = 15;
+const interval = setInterval(function(){
+  document.getElementById('seconds').innerHTML= seconds;
+  seconds--;
+  if (seconds === 0){
+    clearInterval(interval);
+   
+  }
+}, 1000);   */

@@ -35,10 +35,11 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
 
     answerElement.addEventListener('click', (e) => {
+      checkAnswer(currentQuestion, key);
+
       const currentScore = updateScore(quizData.questions);
       const currentScoreElement = document.getElementById(CURRENT_SCORE_ID);
       currentScoreElement.innerHTML = currentScore;
-      checkAnswer(currentQuestion, key);
     });
   }
 
@@ -48,8 +49,7 @@ export const initQuestionPage = () => {
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
       if (!currentQuestion.selected) {
         checkAnswer(currentQuestion, 'not replied');
-        const currentScore = updateScore(quizData.questions);
-        scoreElement.innerHTML = `Score : ${currentScore} of 10`;
+
       } else {
         if (quizData.currentQuestionIndex < quizData.questions.length) {
           nextQuestion();

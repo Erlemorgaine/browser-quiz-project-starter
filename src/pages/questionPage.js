@@ -48,14 +48,10 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
 
     answerElement.addEventListener('click', (e) => {
-      currentQuestion.selected = key;
-      checkAnswer(indexOfCorrectAnswer());
-
-      // TODO: Don't use hardcoded 10, use the length of all the questions. Use it as a parameter in createScoreElement
-      // TODO: Move this line above the function call of createScoreElement, pass it as an argument to createScoreElement
       const currentScore = updateScore(quizData.questions);
       const currentScoreElement = document.getElementById(CURRENT_SCORE_ID);
       currentScoreElement.innerHTML = currentScore;
+      checkAnswer(currentQuestion, key);
     });
   }
 
@@ -66,6 +62,8 @@ export const initQuestionPage = () => {
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
       if (currentQuestion.selected === null) {
         checkAnswer(currentQuestion, 'not replied');
+        const currentScore = updateScore(quizData.questions);
+        scoreElement.innerHTML = `Score : ${currentScore} of 10`;
         setTimeout(nextQuestion, '2000');
       } else {
         if (quizData.currentQuestionIndex < quizData.questions.length) {
@@ -90,7 +88,28 @@ const updateScore = (quizDataQuestions) => {
   return correctAnswers.length;
 };
 
-const checkAnswer = (indexOfCorrectAnswer) => {
+const getTheIndexOfCorrectAnswer = () => {
+  const correctAnswer =
+    quizData.questions[quizData.currentQuestionIndex].correct;
+
+  switch (correctAnswer) {
+    case 'a':
+      return 0;
+    case 'b':
+      return 1;
+    case 'c':
+      return 2;
+    case 'd':
+      return 3;
+  }
+};
+
+const checkAnswer = (currentQuestion, answer) => {
+  currentQuestion.selected = answer;
+  console.log(`selected answer is ${currentQuestion.selected}`);
+  console.log(`correct answer is ${currentQuestion.correct}`);
+
+  console.log(`${currentQuestion.selected}is current question selected`);
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
 
   answerButtons.forEach((element) => {

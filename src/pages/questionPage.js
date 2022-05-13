@@ -49,9 +49,15 @@ export const initQuestionPage = () => {
 
     answerElement.addEventListener('click', (e) => {
       const currentScore = updateScore(quizData.questions);
+<<<<<<< HEAD
       const currentScoreElement = document.getElementById(CURRENT_SCORE_ID);
       currentScoreElement.innerHTML = currentScore;
       checkAnswer(currentQuestion, key);
+=======
+
+      //localStorage.setItem('currentQuestion', quizData.currentQuestionIndex);
+      scoreElement.innerHTML = `Score : ${currentScore} of 10`;
+>>>>>>> b48445a (score data is being kept in localstorage successfully)
     });
   }
 
@@ -59,11 +65,10 @@ export const initQuestionPage = () => {
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => {
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-      if (currentQuestion.selected === null) {
+      if (!currentQuestion.selected) {
         checkAnswer(currentQuestion, 'not replied');
         const currentScore = updateScore(quizData.questions);
         scoreElement.innerHTML = `Score : ${currentScore} of 10`;
-        setTimeout(nextQuestion, '2000');
       } else {
         if (quizData.currentQuestionIndex < quizData.questions.length) {
           nextQuestion();
@@ -105,8 +110,9 @@ const getTheIndexOfCorrectAnswer = () => {
 
 const checkAnswer = (currentQuestion, answer) => {
   currentQuestion.selected = answer;
-  const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
+  localStorage.setItem(quizData.currentQuestionIndex, answer);
 
+  const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
   answerButtons.forEach((element) => {
     element.disabled = 'true';
     element.style.cursor = 'auto';

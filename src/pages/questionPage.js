@@ -4,7 +4,7 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
-  SCORE_VIEW_ID,
+  CURRENT_SCORE_ID,
   ANSWER_BUTTON_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
@@ -19,7 +19,21 @@ export const initQuestionPage = () => {
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const scoreElement = createScoreElement();
+  const indexOfCorrectAnswer = () => {
+    switch (currentQuestion.correct) {
+      case 'a':
+        return 0;
+      case 'b':
+        return 1;
+      case 'c':
+        return 2;
+      case 'd':
+        return 3;
+    }
+  };
+
+  const currentScore = updateScore(quizData.questions);
+  const scoreElement = createScoreElement(currentScore);
   userInterface.appendChild(scoreElement);
 
   const questionElement = createQuestionElement(currentQuestion.text);
@@ -34,9 +48,14 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
 
     answerElement.addEventListener('click', (e) => {
-      const currentScore = updateScore(quizData.questions);
-      scoreElement.innerHTML = `Score : ${currentScore} of 10`;
-      checkAnswer(currentQuestion, key);
+      currentQuestion.selected = key;
+      checkAnswer(indexOfCorrectAnswer());
+
+      // TODO: Don't use hardcoded 10, use the length of all the questions. Use it as a parameter in createScoreElement
+      // TODO: Move this line above the function call of createScoreElement, pass it as an argument to createScoreElement
+
+      const currentScoreElement = document.getElementById(CURRENT_SCORE_ID);
+      currentScoreElement.innerHTML = currentScore;
     });
   }
 
@@ -71,26 +90,7 @@ const updateScore = (quizDataQuestions) => {
   return correctAnswers.length;
 };
 
-const getTheIndexOfCorrectAnswer = () => {
-  const correctAnswer =
-    quizData.questions[quizData.currentQuestionIndex].correct;
-
-  switch (correctAnswer) {
-    case 'a':
-      return 0;
-    case 'b':
-      return 1;
-    case 'c':
-      return 2;
-    case 'd':
-      return 3;
-  }
-};
-
-const checkAnswer = (currentQuestion, answer) => {
-  currentQuestion.selected = answer;
-
-  console.log(`${currentQuestion.selected}is current question selected`);
+const checkAnswer = (indexOfCorrectAnswer) => {
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
 
   answerButtons.forEach((element) => {

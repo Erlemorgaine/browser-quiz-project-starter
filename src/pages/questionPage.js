@@ -58,7 +58,6 @@ export const initQuestionPage = () => {
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => {
-      console.log('hello world');
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
       if (currentQuestion.selected === null) {
         checkAnswer(currentQuestion, 'not replied');
@@ -106,10 +105,6 @@ const getTheIndexOfCorrectAnswer = () => {
 
 const checkAnswer = (currentQuestion, answer) => {
   currentQuestion.selected = answer;
-  console.log(`selected answer is ${currentQuestion.selected}`);
-  console.log(`correct answer is ${currentQuestion.correct}`);
-
-  console.log(`${currentQuestion.selected}is current question selected`);
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
 
   answerButtons.forEach((element) => {

@@ -94,3 +94,6 @@ h1 {
   font-weight: 700;
   font-family: 'Playfair Display', serif;
 }
+.question-page {
+  opacity: 0.4;
+}

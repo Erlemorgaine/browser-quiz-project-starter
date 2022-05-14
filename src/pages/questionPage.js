@@ -15,7 +15,7 @@ import { initFinalPage } from './finalPage.js';
 
 export const initQuestionPage = () => {
   const backgroundEl = document.getElementById('background');
-  backgroundEl.classList.add('question-page');
+  backgroundEl.classList.add('background-question-page');
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
@@ -24,6 +24,7 @@ export const initQuestionPage = () => {
 
   const currentScore = updateScore(quizData.questions);
   const scoreElement = createScoreElement(currentScore);
+  scoreElement.classList.add('score');
   userInterface.appendChild(scoreElement);
 
   const questionElement = createQuestionElement(currentQuestion.text);

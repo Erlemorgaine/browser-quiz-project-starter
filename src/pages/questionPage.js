@@ -40,6 +40,7 @@ export const initQuestionPage = () => {
       const currentScore = updateScore(quizData.questions);
       const currentScoreElement = document.getElementById(CURRENT_SCORE_ID);
       currentScoreElement.innerHTML = currentScore;
+      setLocalStorageItem();
     });
   }
 
@@ -49,7 +50,7 @@ export const initQuestionPage = () => {
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
       if (!currentQuestion.selected) {
         checkAnswer(currentQuestion, 'not replied');
-
+        setLocalStorageItem();
       } else {
         if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
           nextQuestion();
@@ -92,9 +93,6 @@ const getTheIndexOfCorrectAnswer = () => {
 const checkAnswer = (currentQuestion, answer) => {
   currentQuestion.selected = answer;
 
-  // TODO: pass currentQuestionIndex as parameter, this is better practice
-  localStorage.setItem(quizData.currentQuestionIndex, answer);
-
   const answerButtons = Array.from(document.querySelectorAll('.btn-answer'));
   answerButtons.forEach((element) => {
     element.disabled = 'true';
@@ -104,4 +102,13 @@ const checkAnswer = (currentQuestion, answer) => {
       ? element.classList.add('btn-correct-answer')
       : element.classList.add('btn-wrong-answer');
   });
+};
+
+const setLocalStorageItem = () => {
+  const selectedAnswers = quizData.questions
+    .filter((question) => question.selected)
+    .map((question) => question.selected);
+
+  const jsonSelectedAnswersArr = JSON.stringify(selectedAnswers);
+  localStorage.setItem('selectedAnswersArray', jsonSelectedAnswersArr);
 };

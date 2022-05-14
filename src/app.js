@@ -3,6 +3,7 @@
 import { quizData } from './data.js';
 import { initQuestionPage } from './pages/questionPage.js';
 import { initWelcomePage } from './pages/welcomePage.js';
+import { initFinalPage } from './pages/finalPage.js';
 
 const loadApp = () => {
   // TODO: try to put all logic of loading / reloading the app in this function
@@ -17,7 +18,6 @@ const reloadApp = (amountOfQuestionAnswered) => {
   for (let key = 0; key < amountOfQuestionAnswered; key++) {
     quizData.questions[key].selected = localStorage.getItem(key);
   }
-
   initQuestionPage();
 };
 window.addEventListener('load', () => {

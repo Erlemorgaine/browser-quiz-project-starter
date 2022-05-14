@@ -51,7 +51,7 @@ export const initQuestionPage = () => {
         checkAnswer(currentQuestion, 'not replied');
 
       } else {
-        if (quizData.currentQuestionIndex < quizData.questions.length) {
+        if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
           nextQuestion();
         } else {
           initFinalPage();

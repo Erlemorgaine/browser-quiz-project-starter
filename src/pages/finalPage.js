@@ -13,4 +13,5 @@ export const initFinalPage = () => {
   closingElement.innerHTML = String.raw`
   <p> All done!<br> Your final score is : <span id='${CURRENT_SCORE_ID}'>${currentScore}</span> of ${quizData.questions.length} </p>
  `;
+  localStorage.clear();
 };

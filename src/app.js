@@ -6,27 +6,29 @@ import { initWelcomePage } from './pages/welcomePage.js';
 import { initFinalPage } from './pages/finalPage.js';
 
 const loadApp = () => {
-  // TODO: try to put all logic of loading / reloading the app in this function
-  quizData.currentQuestionIndex = 0;
+  if (localStorage.getItem('selectedAnswersArray')) {
+    const selectedAnswers = localStorage.getItem('selectedAnswersArray');
+    const selectedAnswersArray = JSON.parse(selectedAnswers);
+    const amountOfQuestionAnswered = selectedAnswersArray.length;
 
-  initWelcomePage();
-};
+    if (amountOfQuestionAnswered === quizData.questions.length) {
+      // const currentScore = quizData.questions.filter(
+      //   (question) => question.correct === question.selected
+      // );
+      initFinalPage();
+      return;
+    } else {
+      quizData.currentQuestionIndex = amountOfQuestionAnswered;
+      for (let i = 0; i < amountOfQuestionAnswered; i++) {
+        quizData.questions[i].selected = selectedAnswersArray[i];
+      }
+      initQuestionPage();
+    }
+  } else {
+    quizData.currentQuestionIndex = 0;
 
-const reloadApp = (amountOfQuestionAnswered) => {
-  quizData.currentQuestionIndex = amountOfQuestionAnswered;
-
-  for (let key = 0; key < amountOfQuestionAnswered; key++) {
-    quizData.questions[key].selected = localStorage.getItem(key);
+    initWelcomePage();
   }
-  initQuestionPage();
 };
-window.addEventListener('load', () => {
-  // TODO: This can go wrong if also other applications put things in localstorage
-  const amountOfQuestionAnswered = localStorage.length;
 
-  // TODO: remove log
-  console.log();
-  amountOfQuestionAnswered > 0
-    ? reloadApp(amountOfQuestionAnswered)
-    : loadApp();
-});
+window.addEventListener('load', loadApp);

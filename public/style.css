@@ -11,9 +11,6 @@
   max-height: 80vh;
   overflow: auto;
 }
-/*
-font-family: 'Lobster', cursive;
-font-family: 'Gideon Roman', cursive;  */
 
 ul {
   list-style: none;
@@ -24,7 +21,6 @@ ul {
   height: 4vh;
   padding: 2vw;
   background-color: rgb(34, 51, 51);
-  /* font-family: Arial, Helvetica, sans-serif;*/
   font-family: 'Gideon Roman', cursive;
   font-size: 2vw;
   color: white;
@@ -35,15 +31,6 @@ ul {
   align-items: center;
 }
 
-/*
-.btn-correct-answer {
-  background-color: rgb(24, 177, 24);
-}
-.btn-wrong-answer {
-  background-color: rgb(207, 24, 24);
- 
-}
-*/
 html,
 body {
   width: 100vw;
@@ -93,8 +80,13 @@ h1 {
 }
 
 .score {
-  font-size: 1.5vw;
-  font-family: 'Roboto', sans-serif;
+  width: 45vw;
+  height: 5vh;
+  text-align: center;
+  font-size: 1.2vw;
+  font-family: 'Gideon Roman', cursive;
+  font-weight: bold;
+  border-radius: 45px;
 }
 
 .final-page {

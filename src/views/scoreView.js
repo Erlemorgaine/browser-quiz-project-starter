@@ -10,6 +10,7 @@ import { quizData } from '../data.js';
 
 export const createScoreElement = (currentScore) => {
   const element = document.createElement('div');
+  element.className = "score";
 
  
 

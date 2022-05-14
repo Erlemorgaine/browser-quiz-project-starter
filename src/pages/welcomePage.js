@@ -9,6 +9,7 @@ export const initWelcomePage = () => {
   userInterface.innerHTML = '';
 
   const welcomeElement = createWelcomeElement();
+  welcomeElement.classList.add('welcome-page');
   userInterface.appendChild(welcomeElement);
 
   document

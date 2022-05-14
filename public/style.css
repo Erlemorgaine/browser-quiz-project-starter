@@ -1,3 +1,16 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-family: 'Playfair Display', serif;
+}
+
 .centered {
   position: fixed;
   top: 50%;
@@ -17,12 +30,12 @@ ul {
 }
 .btn-answer {
   cursor: pointer;
-  width: 35vw;
-  height: 4vh;
+  width: 45vw;
+  height: 5vh;
   padding: 2vw;
   background-color: rgb(34, 51, 51);
   font-family: 'Gideon Roman', cursive;
-  font-size: 2vw;
+  font-size: 2rem;
   color: white;
   margin: 1vh;
   border: solid black 0.2vw;
@@ -31,6 +44,7 @@ ul {
   align-items: center;
 }
 
+<<<<<<< HEAD
 html,
 body {
   width: 100vw;
@@ -44,6 +58,8 @@ h1 {
   font-family: 'Playfair Display', serif;
 }
 
+=======
+>>>>>>> b4056ba (classes are added for pages)
 .background-image {
   background-image: url(/public/images/background.jpg);
   background-repeat: no-repeat;
@@ -60,10 +76,10 @@ h1 {
 }
 
 .next-page {
-  width: 15vw;
+  width: 30vw;
   height: 5vh;
   font-family: 'Roboto', sans-serif;
-  font-size: 1vw;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.15vw;
   font-weight: 500;
@@ -71,7 +87,6 @@ h1 {
   background-color: rgb(54, 80, 80);
   border: solid black 0.2vw;
   border-radius: 45px;
-
   cursor: pointer;
 }
 
@@ -80,6 +95,7 @@ h1 {
 }
 
 .score {
+<<<<<<< HEAD
   width: 45vw;
   height: 5vh;
   text-align: center;
@@ -87,13 +103,21 @@ h1 {
   font-family: 'Gideon Roman', cursive;
   font-weight: bold;
   border-radius: 45px;
+=======
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+>>>>>>> b4056ba (classes are added for pages)
 }
 
 .final-page {
-  font-size: 3vw;
+  font-size: 3rem;
   font-weight: 700;
   font-family: 'Playfair Display', serif;
 }
-.question-page {
+.background-question-page {
   opacity: 0.4;
+}
+
+.welcome-page h1 {
+  font-size: 5rem;
 }

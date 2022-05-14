@@ -44,22 +44,6 @@ ul {
   align-items: center;
 }
 
-<<<<<<< HEAD
-html,
-body {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  font-size: 2.5vw;
-  font-family: 'Playfair Display', serif;
-}
-
-=======
->>>>>>> b4056ba (classes are added for pages)
 .background-image {
   background-image: url(/public/images/background.jpg);
   background-repeat: no-repeat;
@@ -95,18 +79,8 @@ h1 {
 }
 
 .score {
-<<<<<<< HEAD
-  width: 45vw;
-  height: 5vh;
-  text-align: center;
-  font-size: 1.2vw;
-  font-family: 'Gideon Roman', cursive;
-  font-weight: bold;
-  border-radius: 45px;
-=======
   font-size: 1.6rem;
   font-family: 'Roboto', sans-serif;
->>>>>>> b4056ba (classes are added for pages)
 }
 
 .final-page {

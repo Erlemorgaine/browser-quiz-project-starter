@@ -14,6 +14,9 @@ import { createScoreElement } from '../views/scoreView.js';
 import { initFinalPage } from './finalPage.js';
 
 export const initQuestionPage = () => {
+  const backgroundEl = document.getElementById('background');
+  backgroundEl.classList.add('question-page');
+
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
 
@@ -55,7 +58,9 @@ export const initQuestionPage = () => {
         if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
           nextQuestion();
         } else {
-          initFinalPage();
+          const currentScore = updateScore(quizData.questions);
+          const amountOfQuestions = quizData.questions.length;
+          initFinalPage(currentScore, amountOfQuestions);
         }
       }
     });
@@ -66,7 +71,7 @@ const nextQuestion = () => {
   initQuestionPage();
 };
 
-const updateScore = (quizDataQuestions) => {
+export const updateScore = (quizDataQuestions) => {
   const correctAnswers = quizDataQuestions.filter(
     (question) => question.correct === question.selected
   );

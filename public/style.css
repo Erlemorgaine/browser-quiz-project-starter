@@ -1,3 +1,16 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-family: 'Playfair Display', serif;
+}
+
 .centered {
   position: fixed;
   top: 50%;
@@ -14,4 +27,71 @@
 
 ul {
   list-style: none;
+}
+.btn-answer {
+  cursor: pointer;
+  width: 45vw;
+  height: 5vh;
+  padding: 2vw;
+  background-color: rgb(34, 51, 51);
+  font-family: 'Gideon Roman', cursive;
+  font-size: 2rem;
+  color: white;
+  margin: 1vh;
+  border: solid black 0.2vw;
+  border-radius: 3vw;
+  display: inline-flex;
+  align-items: center;
+}
+
+.background-image {
+  background-image: url(/public/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-correct-answer {
+  border: solid rgb(42, 175, 133) 0.5vw;
+}
+.btn-wrong-answer {
+  border: solid rgba(206, 68, 21, 0.832) 0.5vw;
+}
+
+.next-page {
+  width: 30vw;
+  height: 5vh;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15vw;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(54, 80, 80);
+  border: solid black 0.2vw;
+  border-radius: 45px;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.score {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.final-page {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+.background-question-page {
+  opacity: 0.4;
+}
+
+.welcome-page h1 {
+  font-size: 5rem;
 }

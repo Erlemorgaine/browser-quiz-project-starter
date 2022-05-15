@@ -10,7 +10,7 @@ export const createClosingElement = () => {
   element.className = 'final-page';
 
   element.innerHTML = String.raw`
- <p> well done! </p>
+ <p>  </p>
 `;
 
   return element;

@@ -16,7 +16,9 @@ const loadApp = () => {
     //Convert selected Answers string to an array .
     const selectedAnswersArray = JSON.parse(selectedAnswers);
     const amountOfQuestionAnswered = selectedAnswersArray.length;
-
+    for (let i = 0; i < amountOfQuestionAnswered; i++) {
+      quizData.questions[i].selected = selectedAnswersArray[i];
+    }
     //If all questions are replied then load final page
     if (amountOfQuestionAnswered === amountOfQuestions) {
       const currentScore = updateScore(quizData.questions);
@@ -26,9 +28,6 @@ const loadApp = () => {
     //If all questions are not replied then load question page
     else {
       quizData.currentQuestionIndex = amountOfQuestionAnswered;
-      for (let i = 0; i < amountOfQuestionAnswered; i++) {
-        quizData.questions[i].selected = selectedAnswersArray[i];
-      }
 
       initQuestionPage();
     }

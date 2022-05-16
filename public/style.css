@@ -83,15 +83,25 @@ ul {
   font-family: 'Roboto', sans-serif;
 }
 
-.final-page {
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: 'Playfair Display', serif;
+.welcome-page h1 {
+  font-size: 5rem;
 }
 .background-question-page {
   opacity: 0.4;
 }
 
-.welcome-page h1 {
-  font-size: 5rem;
+.final-page {
+  font-family: 'Playfair Display', serif;
+  text-align: left;
+}
+.final-page h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.final-page .question {
+  color: #792916;
+  font-weight: bold;
+}
+.final-page .result {
+  border-bottom: 2px solid white;
 }
